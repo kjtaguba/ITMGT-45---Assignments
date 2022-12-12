@@ -39,13 +39,14 @@ def shift_letter(letter, shift):
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     if ord(letter)==32:
         return " "
-    elif ord(letter)+shift >90:
+    elif ord(letter)+shift>90:
         while ord(letter)+shift>90:
-            shift=shift-26
+           shift=shift-26
         return chr(ord(letter)+shift)
-    elif ord(letter)+shift <=90:
+    elif ord(letter)+shift<=90:
         return chr(ord(letter)+shift)
 
+    
 def caesar_cipher(message, shift):
     '''Caesar Cipher. 
     6 points.
@@ -70,15 +71,16 @@ def caesar_cipher(message, shift):
     value=shift
     
     for i in message:
+        
         if ord(i)==32:
             shiftedstring=shiftedstring+' '
         elif ord(i)+shift>90:
             while ord(i)+value>90:
-                value=value-26
+               value=value-26
             shiftedstring=shiftedstring+chr(ord(i)+value)
         elif ord(i)+shift<=90:
             shiftedstring=shiftedstring+chr(ord(i)+shift)
-        
+            
     return shiftedstring
 
 
@@ -112,11 +114,12 @@ def shift_by_letter(letter, letter_shift):
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     if ord(letter)==32:
         return " "
-    elif ord(letter)-65 + ord(letter_shift)-65 >25:
+    elif ord(letter)-65 + ord(letter_shift)-65>25:
         return chr(ord(letter)-65 + ord(letter_shift)-26)
-    elif ord(letter)-65 + ord(letter_shift)-65 <=25:
+    elif ord(letter)-65 + ord(letter_shift)-65<=25:
         return chr(ord(letter)-65 + ord(letter_shift))
 
+    
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
     6 points.
@@ -148,7 +151,7 @@ def vigenere_cipher(message, key):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-     keycode=[]
+    keycode=[]
     messagecode=[]
     combinedcode=[]
     answer=''
@@ -156,10 +159,8 @@ def vigenere_cipher(message, key):
     
     for y in range(0,len(message)):
         messagecode.append(ord(message[y])-65)
-    
     for x in range(0,len(key_letters)):
         keycode.append(ord(key_letters[x])-65)
-        
     for z in range (0,len(messagecode)):
         if messagecode[z]==-33:
             combinedcode.append(messagecode[z])
@@ -167,8 +168,8 @@ def vigenere_cipher(message, key):
             combinedcode.append(messagecode[z]+keycode[z]-26)
         elif messagecode[z]+keycode[z]<=25:
             combinedcode.append(messagecode[z]+keycode[z])
-        
+            
     for a in range(0,len(combinedcode)):
         answer=answer+chr(combinedcode[a]+65)
-
+        
     return answer
