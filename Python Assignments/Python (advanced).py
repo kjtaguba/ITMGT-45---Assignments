@@ -49,8 +49,8 @@ def relationship_status(from_member, to_member, social_graph):
         answer='followed by'
     else:
         answer='no relationship'
+        
     return answer
-
 
 
 def tic_tac_toe(board):
@@ -95,19 +95,15 @@ def tic_tac_toe(board):
                 newboard[y][x]=1
             elif board[y][x]=='':
                 newboard[y][x]=0
-
-    for x in range (len(newboard)):
-        rowsum.append(sum(newboard[x]))   
                 
     for x in range (len(newboard)):
+        rowsum.append(sum(newboard[x]))   
+    for x in range (len(newboard)):
         columnsum.append(sum([item[x] for item in newboard]))
-    
     for x in range (len(newboard)):
         cross.append(newboard[x][x])
-        
     for x in range (len(newboard)):
         othercross.append([item[len(newboard)-1-x] for item in newboard])
-        
     for x in range (len(newboard)):
         convertcross.append(othercross[x][x])
                 
@@ -156,7 +152,7 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-     newkeys=list(route_map.keys())
+    newkeys=list(route_map.keys())
     firstkeys= [item[0]for item in newkeys]
     secondkeys=[item[1]for item in newkeys]
     newtime=list(route_map.values())
@@ -167,7 +163,7 @@ def eta(first_stop, second_stop, route_map):
     secondposition=secondkeys.index(second_stop)
         
     for x in range(len(newtime)):
-            answer=answer+list(newtime[x].values())
+        answer=answer+list(newtime[x].values())
     
     if first_stop==second_stop:
         return sum(answer)
