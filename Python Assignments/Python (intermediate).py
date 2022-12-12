@@ -173,3 +173,4 @@ def vigenere_cipher(message, key):
         answer=answer+chr(combinedcode[a]+65)
         
     return answer
+
